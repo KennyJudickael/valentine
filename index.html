@@ -2,141 +2,133 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Quiz de Saint-Valentin 💘</title>
-    <style>
-      body {
-        font-family: "Arial", sans-serif;
-        text-align: center;
-        background-color: #ffebf0;
-        color: #d63384;
-        padding: 20px;
-      }
-      .quiz-container {
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-        max-width: 500px;
-        margin: auto;
-        position: relative;
-      }
-      .question {
-        display: none;
-      }
-      .active {
-        display: block;
-      }
-      button {
-        background: #d63384;
-        color: white;
-        border: none;
-        padding: 10px 15px;
-        font-size: 16px;
-        cursor: pointer;
-        border-radius: 5px;
-        margin-top: 10px;
-      }
-      button:hover {
-        background: #c2185b;
-      }
-      .btn-container {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 10px;
-      }
-      #love-letter {
-        display: none;
-        background: #fff3cd;
-        color: #856404;
-        padding: 15px;
-        margin-top: 20px;
-        border-radius: 8px;
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-      }
-    </style>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
-    <h1>💘 Petit Quiz de Saint-Valentin 💘</h1>
-    <div class="quiz-container">
+  <body
+    class="d-flex flex-column align-items-center justify-content-center vh-100"
+  >
+    <div class="container text-center">
+      <h1 class="mb-4">💘 Petit Quiz de Saint-Valentin 💘</h1>
       <p>Réponds aux trois questions pour débloquer une surprise !</p>
 
-      <div class="question active" id="q1">
-        <p>1. Quelle est la couleur de l'amour ?</p>
-        <label><input type="radio" name="q1" value="rouge" /> Rouge</label>
-        <label><input type="radio" name="q1" value="bleu" /> Bleu</label>
-        <label><input type="radio" name="q1" value="vert" /> Vert</label>
-        <div class="btn-container">
-          <button onclick="nextQuestion(1)">Suivant</button>
+      <div class="quiz-container">
+        <div class="question active" id="q1">
+          <p>1. Quelle est la couleur de l'amour ?</p>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="q1"
+              value="rouge"
+              id="q1-rouge"
+            />
+            <label class="form-check-label" for="q1-rouge">Rouge</label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="q1"
+              value="bleu"
+              id="q1-bleu"
+            />
+            <label class="form-check-label" for="q1-bleu">Bleu</label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="q1"
+              value="vert"
+              id="q1-vert"
+            />
+            <label class="form-check-label" for="q1-vert">Vert</label>
+          </div>
+          <button class="btn btn-primary mt-3" onclick="nextQuestion(1)">
+            Suivant
+          </button>
         </div>
-      </div>
 
-      <div class="question" id="q2">
-        <p>2. Quel est le jour de la Saint-Valentin ?</p>
-        <label><input type="radio" name="q2" value="14" /> 14 Février</label>
-        <label><input type="radio" name="q2" value="25" /> 25 Décembre</label>
-        <label><input type="radio" name="q2" value="1" /> 1er Janvier</label>
-        <div class="btn-container">
-          <button onclick="prevQuestion(2)">Retour</button>
-          <button onclick="nextQuestion(2)">Suivant</button>
+        <div class="question" id="q2">
+          <p>2. Quel est le jour de la Saint-Valentin ?</p>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="q2"
+              value="14"
+              id="q2-14"
+            />
+            <label class="form-check-label" for="q2-14">14 Février</label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="q2"
+              value="25"
+              id="q2-25"
+            />
+            <label class="form-check-label" for="q2-25">25 Décembre</label>
+          </div>
+          <button class="btn btn-secondary mt-3" onclick="prevQuestion(2)">
+            Retour
+          </button>
+          <button class="btn btn-primary mt-3" onclick="nextQuestion(2)">
+            Suivant
+          </button>
         </div>
-      </div>
 
-      <div class="question" id="q3">
-        <p>3. Que symbolise un cœur ❤️ ?</p>
-        <label><input type="radio" name="q3" value="amour" /> L'Amour</label>
-        <label><input type="radio" name="q3" value="faim" /> La Faim</label>
-        <label
-          ><input type="radio" name="q3" value="sommeil" /> Le Sommeil</label
-        >
-        <div class="btn-container">
-          <button onclick="prevQuestion(3)">Retour</button>
-          <button onclick="verifierReponses()">Valider</button>
+        <div class="question" id="q3">
+          <p>3. Que symbolise un cœur ❤️ ?</p>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="q3"
+              value="amour"
+              id="q3-amour"
+            />
+            <label class="form-check-label" for="q3-amour">L'Amour</label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="q3"
+              value="faim"
+              id="q3-faim"
+            />
+            <label class="form-check-label" for="q3-faim">La Faim</label>
+          </div>
+          <button class="btn btn-secondary mt-3" onclick="prevQuestion(3)">
+            Retour
+          </button>
+          <button class="btn btn-success mt-3" onclick="verifierReponses()">
+            Valider
+          </button>
         </div>
-      </div>
 
-      <div id="love-letter">
-        <h2>💌 Une lettre pour toi 💌</h2>
-        <p>
-          Mon amour, chaque jour passé à tes côtés est une bénédiction. Tu
-          illumines ma vie comme une étoile brillante dans la nuit. Merci d’être
-          la personne merveilleuse que tu es. Je t’aime ❤️
-        </p>
+        <div id="love-letter" class="mt-4">
+          <h2>💌 Une lettre pour toi 💌</h2>
+          <p>
+            Mon amour, chaque jour passé à tes côtés est une bénédiction. Tu
+            illumines ma vie comme une étoile brillante dans la nuit. Merci
+            d’être la personne merveilleuse que tu es. Je t’aime ❤️
+          </p>
+        </div>
       </div>
     </div>
 
-    <script>
-      function nextQuestion(current) {
-        document.getElementById("q" + current).classList.remove("active");
-        document.getElementById("q" + (current + 1)).classList.add("active");
-      }
-
-      function prevQuestion(current) {
-        document.getElementById("q" + current).classList.remove("active");
-        document.getElementById("q" + (current - 1)).classList.add("active");
-      }
-
-      function verifierReponses() {
-        let reponsesCorrectes = {
-          q1: "rouge",
-          q2: "14",
-          q3: "amour",
-        };
-
-        let q1 = document.querySelector('input[name="q1"]:checked')?.value;
-        let q2 = document.querySelector('input[name="q2"]:checked')?.value;
-        let q3 = document.querySelector('input[name="q3"]:checked')?.value;
-
-        if (
-          q1 === reponsesCorrectes.q1 &&
-          q2 === reponsesCorrectes.q2 &&
-          q3 === reponsesCorrectes.q3
-        ) {
-          document.getElementById("love-letter").style.display = "block";
-        } else {
-          alert("Oups ! Réessaie encore 💕");
-        }
-      }
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>

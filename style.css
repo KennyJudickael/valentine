@@ -1,0 +1,37 @@
+body {
+  font-family: "Arial", sans-serif;
+  text-align: center;
+  background-color: #ffebf0;
+  color: #d63384;
+}
+
+.quiz-container {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 90%;
+  width: 400px;
+  margin: auto;
+}
+
+.question {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
+#love-letter {
+  display: none;
+  background: #fff3cd;
+  color: #856404;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button {
+  width: 100%;
+}
