@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quiz de Saint-Valentin</title>
+    <title>Quiz de Saint-Valentin 💘</title>
     <style>
       body {
         font-family: "Arial", sans-serif;
@@ -19,9 +19,13 @@
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
         max-width: 500px;
         margin: auto;
+        position: relative;
       }
       .question {
-        margin: 15px 0;
+        display: none;
+      }
+      .active {
+        display: block;
       }
       button {
         background: #d63384;
@@ -52,30 +56,31 @@
     <div class="quiz-container">
       <p>Réponds aux trois questions pour débloquer une surprise !</p>
 
-      <div class="question">
+      <div class="question active" id="q1">
         <p>1. Quelle est la couleur de l'amour ?</p>
         <label><input type="radio" name="q1" value="rouge" /> Rouge</label>
         <label><input type="radio" name="q1" value="bleu" /> Bleu</label>
         <label><input type="radio" name="q1" value="vert" /> Vert</label>
+        <button onclick="nextQuestion(1)">Suivant</button>
       </div>
 
-      <div class="question">
+      <div class="question" id="q2">
         <p>2. Quel est le jour de la Saint-Valentin ?</p>
         <label><input type="radio" name="q2" value="14" /> 14 Février</label>
         <label><input type="radio" name="q2" value="25" /> 25 Décembre</label>
         <label><input type="radio" name="q2" value="1" /> 1er Janvier</label>
+        <button onclick="nextQuestion(2)">Suivant</button>
       </div>
 
-      <div class="question">
+      <div class="question" id="q3">
         <p>3. Que symbolise un cœur ❤️ ?</p>
         <label><input type="radio" name="q3" value="amour" /> L'Amour</label>
         <label><input type="radio" name="q3" value="faim" /> La Faim</label>
         <label
           ><input type="radio" name="q3" value="sommeil" /> Le Sommeil</label
         >
+        <button onclick="verifierReponses()">Valider</button>
       </div>
-
-      <button onclick="verifierReponses()">Valider</button>
 
       <div id="love-letter">
         <h2>💌 Une lettre pour toi 💌</h2>
@@ -88,6 +93,11 @@
     </div>
 
     <script>
+      function nextQuestion(current) {
+        document.getElementById("q" + current).classList.remove("active");
+        document.getElementById("q" + (current + 1)).classList.add("active");
+      }
+
       function verifierReponses() {
         let reponsesCorrectes = {
           q1: "rouge",
